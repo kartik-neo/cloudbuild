@@ -1,19 +1,19 @@
-# [START cloudbuild_quickstart_build]
-# build docker image
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image', '.' ]
-# push docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-east1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image', '.']
+
 images:
-- 'us-east1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image'
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args:
-    - 'compute'
-    - 'instances'
-    - 'update-container'
-    - 'nagios'
-    - '--zone=us-central1-a'
-    - '--container-image=us-east1-docker.pkg.dev/kartik-gaur-397505/python-repo/python-image:latest'
+  - 'us-east1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'compute'
+      - 'instances'
+      - 'update-container'
+      - 'nagios'
+      - '--zone=us-central1-a'
+      - '--container-image=us-east1-docker.pkg.dev/kartik-gaur-397505/python-repo/python-image:latest'
+
 options:
- logging: CLOUD_LOGGING_ONLY
+  logging: 'CLOUD_LOGGING_ONLY'
