@@ -2,7 +2,7 @@
 # build docker image
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image', '.' ]
+  args: [ 'build', '-t', 'asia-east1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image', '.' ]
 # push docker image
 images:
 - 'asia-east1-docker.pkg.dev/$PROJECT_ID/python-repo/python-image'
