@@ -1,6 +1,6 @@
 provider "google" {
-    project = "Project Name"
-    region = "us-central1"
+    project = "kartik69"
+    region = "asia-south1"
 }
 resource "google_cloud_run_service" "default" {
   name     = "cloudrun-srv-cicd"
@@ -8,7 +8,7 @@ resource "google_cloud_run_service" "default" {
   template {
     spec {
       containers {
-        image = "asia-south1-docker.pkg.dev/kartik69/test:${var.tags}"
+        image = "asia-south1-docker.pkg.dev/kartik69/test/test:${var.tags}"
         ports {
           container_port = 80
         }
