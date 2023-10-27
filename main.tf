@@ -2,7 +2,7 @@ provider "google" {
     project = "kartik69"
     region = "asia-south1"
 }
-resource "google_cloud_run_service" "default" {
+resource "google_cloud_run_service" "cloudrun-srv-cicd" {
   name     = "cloudrun-srv-cicd"
   location = "asia-south-1"
   template {
