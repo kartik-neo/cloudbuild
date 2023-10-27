@@ -1,10 +1,10 @@
 provider "google" {
     project = "kartik69"
-    region = "asia-south1"
+    region = "asia-east1"
 }
 resource "google_cloud_run_service" "cloudrun-srv-cicd" {
   name     = "cloudrun-srv-cicd"
-  location = "asia-south-1"
+  location = "asia-east1"
   template {
     spec {
       containers {
